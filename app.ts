@@ -1,4 +1,5 @@
 
+
 // 1. Basic Data Types
 
 let userName: string = "Sufiyan";
