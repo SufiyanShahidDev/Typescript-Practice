@@ -1,5 +1,4 @@
 
-// Basic Data Types
 
 let userName: string = "Sufiyan";
 let age: number = 21;
