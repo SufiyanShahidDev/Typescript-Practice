@@ -1,5 +1,5 @@
 
-// 1. Basic Data Types
+// Basic Data Types
 
 let userName: string = "Sufiyan";
 let age: number = 21;
@@ -10,7 +10,7 @@ console.log(age);
 console.log(isStudent);
 
 
-// 2. Undefined and Null
+// Undefined and Null
 
 let address: string | undefined;
 let userData: null = null;
@@ -19,7 +19,7 @@ console.log(address);
 console.log(userData);
 
 
-// 3. Arrays
+// Arrays
 
 let fruits: string[] = ["Apple", "Mango", "Banana"];
 
@@ -32,10 +32,10 @@ console.log(marks);
 console.log(mixedValues);
 
 
-// 4. Tuples
+// Tuples
 
 let studentInfo: [string, number, boolean] = [
-    "Sufiyan",
+    "Arham",
     21,
     true
 ];
@@ -43,7 +43,7 @@ let studentInfo: [string, number, boolean] = [
 console.log(studentInfo);
 
 
-// 5. Enums
+// Enums
 
 enum UserRole {
     User = "User",
@@ -63,14 +63,14 @@ enum ResponseStatus {
 console.log(ResponseStatus.Success);
 
 
-// 6. Unknown Type
+// Unknown Type
 
 let data: unknown;
 
 data = "Hello World";
 
 
-// 7. Type Narrowing
+// Type Narrowing
 
 if (typeof data === "string") {
     console.log(data.toUpperCase());
@@ -89,7 +89,7 @@ if (typeof data === "boolean") {
 }
 
 
-// 8. Functions 
+// Functions 
 
 const calculateTotal = (): number => {
 
@@ -102,7 +102,7 @@ const calculateTotal = (): number => {
 console.log(calculateTotal());
 
 
-// 9. Type Safety
+// Type Safety
 
 let productName: string = "Laptop";
 let productPrice: number = 85000;
@@ -111,7 +111,7 @@ console.log(productName);
 console.log(productPrice);
 
 
-// 10. Type Checking with if
+// Type Checking with if
 
 let score: number = 75;
 
@@ -122,7 +122,7 @@ if (score > 50) {
 console.log(score);
 
 
-// 11. Union Types
+// Union Types
 
 let productId: string | number = 101;
 
@@ -131,7 +131,7 @@ productId = "P-101";
 console.log(productId);
 
 
-// 12. Interfaces
+// Interfaces
 
 interface Student {
     name: string;
@@ -148,7 +148,7 @@ const student: Student = {
 console.log(student);
 
 
-// 13. Interface Extending Another Interface
+// Interface Extending Another Interface
 
 interface Account {
     email: string;
@@ -168,7 +168,7 @@ const adminUser: AdminAccount = {
 console.log(adminUser);
 
 
-// 14. Merging Interfaces
+//  Merging Interfaces
 
 interface UserProfile {
     name: string;
@@ -188,7 +188,7 @@ const profile: UserProfile = {
 console.log(profile);
 
 
-// 15. Type Aliases
+//  Type Aliases
 
 type Value = string | number | boolean;
 
@@ -201,7 +201,7 @@ myValue = true;
 console.log(myValue);
 
 
-// 16. Type Alias with Union
+// Type Alias with Union
 
 type ID = string | number;
 
@@ -212,7 +212,7 @@ userId = "USER-123";
 console.log(userId);
 
 
-// 17. Intersection Types
+// Intersection Types
 
 type UserDetails = {
     name: string;
@@ -234,36 +234,185 @@ const completeUser: CompleteUser = {
 console.log(completeUser);
 
 
-// 18. Function with Interface
+// Function with Interface
 
-interface Product {
-    name: string;
+// interface Product {
+//     name: string;
+//     price: number;
+// }
+
+// function showProduct(product: Product): void {
+//     console.log(product.name);
+//     console.log(product.price);
+// }
+
+// showProduct({
+//     name: "Keyboard",
+//     price: 2500
+// });
+
+
+// Class
+
+// class ProductItem {
+
+//     constructor(
+//         public name: string,
+//         public price: number
+//     ) {}
+// }
+
+// let product1 = new ProductItem("Keyboard", 2500);
+// let product2 = new ProductItem("Mouse", 1500);
+
+// console.log(product1);
+// console.log(product2);
+
+
+// Classes and Objects
+
+class Mobile {
+
+    brand: string;
     price: number;
+
+    constructor(brand: string, price: number) {
+        this.brand = brand;
+        this.price = price;
+    }
 }
 
-function showProduct(product: Product): void {
-    console.log(product.name);
-    console.log(product.price);
+let mobile1 = new Mobile("Samsung", 45000);
+let mobile2 = new Mobile("Infinix", 35000);
+
+console.log(mobile1);
+console.log(mobile2);
+
+
+// Constructors
+
+class Student {
+
+    name: string;
+    age: number;
+    email: string;
+
+    constructor(n: string, a: number, e: string) {
+        this.name = n;
+        this.age = a;
+        this.email = e;
+    }
 }
 
-showProduct({
-    name: "Keyboard",
-    price: 2500
-});
+let student1 = new Student("Ali", 19, "ali@gmail.com");
+let student2 = new Student("Ahmed", 21, "ahmed@gmail.com");
+
+console.log(student1);
+console.log(student2);
 
 
-// 19. Class
+// Access Modifiers public, private and protected
 
-class ProductItem {
+class BankAccount {
+
+    public accountHolder: string;
+    private balance: number;
+    protected accountType: string;
+
+    constructor(holder: string, balance: number, type: string) {
+        this.accountHolder = holder;
+        this.balance = balance;
+        this.accountType = type;
+    }
+
+    public showBalance(): void {
+        console.log(this.balance);
+    }
+}
+
+let account1 = new BankAccount("Ali", 5000, "Savings");
+
+console.log(account1.accountHolder);
+account1.showBalance();
+
+// account1.balance; 
+// account1.accountType; 
+
+
+// Readonly Properties
+
+class Laptop {
+
+    constructor(
+        public readonly brand: string,
+        public price: number
+    ) {}
+
+}
+
+let laptop1 = new Laptop("HP", 80000);
+
+console.log(laptop1);
+
+// laptop1.brand = "Dell"; 
+
+laptop1.price = 75000;
+
+console.log(laptop1);
+
+
+// Optional Properties
+
+interface UserProfile {
+
+    name: string;
+    email: string;
+    age: number;
+    city?: string;
+}
+
+let user1: UserProfile = {
+    name: "Hasan",
+    email: "hasan@gmail.com",
+    age: 22
+};
+
+let user2: UserProfile = {
+    name: "Usman",
+    email: "usman@gmail.com",
+    age: 20,
+    city: "Karachi"
+};
+
+console.log(user1);
+console.log(user2);
+
+
+// Parameter Properties
+
+class Product {
 
     constructor(
         public name: string,
-        public price: number
+        public price: number,
+        public category: string
     ) {}
+
 }
 
-let product1 = new ProductItem("Keyboard", 2500);
-let product2 = new ProductItem("Mouse", 1500);
+let product1 = new Product("Keyboard", 2500, "Accessories");
+let product2 = new Product("Mouse", 1500, "Accessories");
 
 console.log(product1);
 console.log(product2);
+
+
+// Default Parameter Value
+
+function greetUser(name: string = "Student"): void {
+
+    console.log("Welcome " + name);
+}
+
+greetUser("Shariq");
+greetUser();
