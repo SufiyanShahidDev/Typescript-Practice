@@ -1,5 +1,4 @@
 "use strict";
-// Basic Data Types
 let userName = "Sufiyan";
 let age = 21;
 let isStudent = true;
