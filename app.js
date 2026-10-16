@@ -280,147 +280,174 @@
 // student1.name = "Ahmed";
 // console.log(student1.name);
 // Static Members
-class Student {
-    static showInstitute() {
-        return Student.institute;
-    }
-}
-Student.institute = "SMIT";
-console.log(Student.institute);
-console.log(Student.showInstitute());
-// Abstract Classes and Methods
-class Vehicle {
-    constructor(name) {
-        this.name = name;
-    }
-}
-class Car extends Vehicle {
-    start() {
-        console.log(this.name + " is starting");
-    }
-}
-let car1 = new Car("mehran");
-car1.start();
-// Functions
-function showMessage(message) {
-    console.log(message);
-}
-showMessage("Welcome to TypeScript");
-// Function Types
-function greet(name, cb) {
-    cb(name);
-}
-greet("Sufiyan", (value) => {
-    console.log("Hello " + value);
+// class Student {
+//     static institute = "SMIT";
+//     static showInstitute() {
+//         return Student.institute;
+//     }
+// }
+// console.log(Student.institute);
+// console.log(Student.showInstitute());
+// // Abstract Classes and Methods
+// abstract class Vehicle {
+//     constructor(public name: string) {}
+//     abstract start(): void;
+// }
+// class Car extends Vehicle {
+//     start(): void {
+//         console.log(this.name + " is starting");
+//     }
+// }
+// let car1 = new Car("mehran");
+// car1.start();
+// // Functions
+// function showMessage(message: string): void {
+//     console.log(message);
+// }
+// showMessage("Welcome to TypeScript");
+// // Function Types
+// function greet(name: string, cb: (value: string) => void): void {
+//     cb(name);
+// }
+// greet("Sufiyan", (value: string): void => {
+//     console.log("Hello " + value);
+// });
+// // Optional and Default Parameters
+// function showDetails(name: string, age?: number): void {
+//     console.log(name);
+//     console.log(age);
+// }
+// showDetails("Ali");
+// showDetails("Ahmed", 20);
+// function calculatePrice(price: number, discount: number = 10): void {
+//     console.log(price - discount);
+// }
+// calculatePrice(100);
+// calculatePrice(100, 20);
+// // Rest Parameters
+// function getMarks(...marks: number[]): void {
+//     console.log(marks);
+// }
+// getMarks(70, 80, 90, 85);
+// function showNames(...names: string[]): void {
+//     console.log(names);
+// }
+// showNames("Ali", "Ahmed", "Usman");
+// // Function Overloading
+// function display(value: number): void;
+// function display(value: string): void;
+// function display(value: string | number): void {
+//     if (typeof value === "string") {
+//         console.log(value.toUpperCase());
+//     } else {
+//         console.log(value + 10);
+//     }
+// }
+// display(50);
+// display("hello");
+// // Generic Functions
+// function showValue<T>(value: T): void {
+//     console.log(value);
+// }
+// showValue<number>(100);
+// showValue<string>("Sufiyan");
+// showValue<boolean>(true);
+// // Generic Interfaces
+// interface Account<T> {
+//     email: string;
+//     password: string;
+//     secretCode: T;
+// }
+// function showAccount(user: Account<number>): void {
+//     console.log(user.email);
+//     console.log(user.secretCode);
+// }
+// showAccount({
+//     email: "ali@gmail.com",
+//     password: "12345",
+//     secretCode: 4567
+// });
+// // Generic Classes
+// class Box<T> {
+//     constructor(public value: T) {}
+// }
+// let box1 = new Box<number>(500);
+// let box2 = new Box<string>("Books");
+// console.log(box1);
+// console.log(box2);
+// // --------------------------------------------------
+// // 11. Type Assertion
+// // --------------------------------------------------
+// let someValue: unknown = "typescript";
+// let textValue = someValue as string;
+// console.log(textValue.toUpperCase());
+// // Type Casting
+// let price: number = 250;
+// let priceString = String(price);
+// console.log(priceString);
+// // Non-Null Assertion Operator
+// let userName: string | null = "Sufiyan";
+// console.log(userName!.toUpperCase());
+// // Type Guards
+// function checkValue(value: string | number): void {
+//     if (typeof value === "string") {
+//         console.log(value.toUpperCase());
+//     }
+//     if (typeof value === "number") {
+//         console.log(value.toFixed());
+//     }
+// }
+// checkValue("hello");
+// checkValue(250);
+// // Using typeof
+// let myValue: string | number = 100;
+// if (typeof myValue === "number") {
+//     console.log(myValue + 50);
+// }
+// // Using instanceof
+// class Mobile {
+//     constructor(public brand: string) {}
+// }
+// let mobile1 = new Mobile("Samsung");
+// if (mobile1 instanceof Mobile) {
+//     console.log(mobile1.brand);
+// }
+// // Partial Utility Type
+// interface StudentInfo {
+//     name: string;
+//     age: number;
+//     city: string;
+// }
+// let student1: Partial<StudentInfo> = {
+//     name: "Hasan"
+// };
+// console.log(student1);
+// // Required Utility Type
+// interface UserInfo {
+//     name?: string;
+//     email?: string;
+// }
+// let user1: Required<UserInfo> = {
+//     name: "Ahmed",
+//     email: "ahmed@gmail.com"
+// };
+// console.log(user1);
+// // Readonly Utility Type
+// interface ProductInfo {
+//     name: string;
+//     price: number;
+// }
+// let product1: Readonly<ProductInfo> = {
+//     name: "Keyboard",
+//     price: 2000
+// };
+// console.log(product1);
+// function
+const abc = (n, cb) => {
+    cb(22);
+};
+abc(12, (n) => {
+    console.log(n);
+    return 12;
 });
-// Optional and Default Parameters
-function showDetails(name, age) {
-    console.log(name);
-    console.log(age);
-}
-showDetails("Ali");
-showDetails("Ahmed", 20);
-function calculatePrice(price, discount = 10) {
-    console.log(price - discount);
-}
-calculatePrice(100);
-calculatePrice(100, 20);
-// Rest Parameters
-function getMarks(...marks) {
-    console.log(marks);
-}
-getMarks(70, 80, 90, 85);
-function showNames(...names) {
-    console.log(names);
-}
-showNames("Ali", "Ahmed", "Usman");
-function display(value) {
-    if (typeof value === "string") {
-        console.log(value.toUpperCase());
-    }
-    else {
-        console.log(value + 10);
-    }
-}
-display(50);
-display("hello");
-// Generic Functions
-function showValue(value) {
-    console.log(value);
-}
-showValue(100);
-showValue("Sufiyan");
-showValue(true);
-function showAccount(user) {
-    console.log(user.email);
-    console.log(user.secretCode);
-}
-showAccount({
-    email: "ali@gmail.com",
-    password: "12345",
-    secretCode: 4567
-});
-// Generic Classes
-class Box {
-    constructor(value) {
-        this.value = value;
-    }
-}
-let box1 = new Box(500);
-let box2 = new Box("Books");
-console.log(box1);
-console.log(box2);
-// --------------------------------------------------
-// 11. Type Assertion
-// --------------------------------------------------
-let someValue = "typescript";
-let textValue = someValue;
-console.log(textValue.toUpperCase());
-// Type Casting
-let price = 250;
-let priceString = String(price);
-console.log(priceString);
-// Non-Null Assertion Operator
-let userName = "Sufiyan";
-console.log(userName.toUpperCase());
-// Type Guards
-function checkValue(value) {
-    if (typeof value === "string") {
-        console.log(value.toUpperCase());
-    }
-    if (typeof value === "number") {
-        console.log(value.toFixed());
-    }
-}
-checkValue("hello");
-checkValue(250);
-// Using typeof
-let myValue = 100;
-if (typeof myValue === "number") {
-    console.log(myValue + 50);
-}
-// Using instanceof
-class Mobile {
-    constructor(brand) {
-        this.brand = brand;
-    }
-}
-let mobile1 = new Mobile("Samsung");
-if (mobile1 instanceof Mobile) {
-    console.log(mobile1.brand);
-}
-let student1 = {
-    name: "Hasan"
-};
-console.log(student1);
-let user1 = {
-    name: "Ahmed",
-    email: "ahmed@gmail.com"
-};
-console.log(user1);
-let product1 = {
-    name: "Keyboard",
-    price: 2000
-};
-console.log(product1);
 export {};
