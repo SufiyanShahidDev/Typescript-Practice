@@ -8,7 +8,6 @@
 // console.log(age);
 // console.log(isStudent);
 
-
 // // Undefined and Null
 
 // let address: string | undefined;
